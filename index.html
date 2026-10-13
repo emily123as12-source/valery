@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Pagina</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valery</title>
     <style>
         body {
             background-color: black;
@@ -13,15 +14,18 @@
             align-items: center;
             font-family: Arial, sans-serif;
             overflow: hidden;
+            position: relative;
         }
+        /* El cuadro ahora tiene posicionamiento absoluto para poder moverse libremente */
         .cuadro {
             border: 2px solid white;
             border-radius: 10px;
             padding: 40px 80px;
-            position: relative;
+            position: absolute;
             background-color: black;
             min-width: 250px;
             text-align: center;
+            transition: all 0.1s ease; /* Hace que el movimiento sea rápido y fluido */
         }
         .boton-cerrar {
             position: absolute;
@@ -51,11 +55,35 @@
 </head>
 <body>
 
-    <div class="cuadro">
-        <div class="boton-cerrar">✕</div>
-        <!-- Cambia la palabra REEMPLAZA por el nombre que tú quieras -->
+    <div class="cuadro" id="miCuadro">
+        <div class="boton-cerrar" id="btnX">✕</div>
         <p class="nombre">Valery</p>
     </div>
+
+    <script>
+        const cuadro = document.getElementById('miCuadro');
+        const btnX = document.getElementById('btnX');
+
+        // Función matemática para mover el cuadro a cualquier lugar de la pantalla
+        function escapar() {
+            // Calcula el ancho y alto disponible en la pantalla del usuario
+            const maxW = window.innerWidth - cuadro.offsetWidth;
+            const maxH = window.innerHeight - cuadro.offsetHeight;
+
+            // Genera coordenadas aleatorias
+            const randomX = Math.floor(Math.random() * maxW);
+            const randomY = Math.floor(Math.random() * maxH);
+
+            // Mueve el cuadro a la nueva posición
+            cuadro.style.left = randomX + 'px';
+            cuadro.style.top = randomY + 'px';
+        }
+
+        // Activa el escape cuando el mouse entra al área de la X
+        btnX.addEventListener('mouseenter', escapar);
+        // También por si intentan darle click en celulares (táctil)
+        btnX.addEventListener('click', escapar);
+    </script>
 
 </body>
 </html>
