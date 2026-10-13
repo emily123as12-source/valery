@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Pagina</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .cuadro {
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 40px 80px;
+            position: relative;
+            background-color: black;
+            min-width: 250px;
+            text-align: center;
+        }
+        .boton-cerrar {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .nombre {
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            margin: 0;
+            margin-top: 10px;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cuadro">
+        <div class="boton-cerrar">✕</div>
+        <!-- Cambia la palabra REEMPLAZA por el nombre que tú quieras -->
+        <p class="nombre">Valery</p>
+    </div>
+
+</body>
+</html>
